@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block title %}Delta{% endblock %}
+{% load staticfiles %}
+{% block content %}
+    {% if request.session.is_login %}
+        <div class="container-fluid" style="padding-top: 50px;">
+            <div class="row align-items-center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4"  style="height: 100%">
+<!--                    <img src="/static/image/{{ request.session.image }}" width="100px" height="100px">-->
+                    <h1>Welcome, {{ request.session.user_name }}</h1>
+                    <a href="{% url 'accounts:my_space' %}" class="btn btn-primary btn-lg">Home Page</a><br>
+                </div>
+                <div class="col-sm-5" style="height: 100%">
+                    <div style="margin: 5px;padding: 25px;background-color: #ececf6">
+                        <h3>Current number of articles:{{ request.session.article_num }}</h3>
+                        <a href="{% url 'recreation:article' %}" class="btn btn-outline-info btn-lg" style="align-self: center">Article Areas</a>
+                    </div>
+                    <div style="margin: 5px;padding: 25px;background-color: #ececf6">
+                        <h3>Current number of videos:{{ request.session.video_num }}</h3>
+                        <a href="{% url 'recreation:video' %}" class="btn btn-outline-success btn-lg">Video Areas</a>
+                    </div>
+                    <div style="margin: 5px;padding: 25px;background-color: #ececf6">
+                        <h3>Lorem ipsum</h3>
+                        <a href="" class="btn btn-outline-warning btn-lg">Lorem ipsum</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        <section style="margin-bottom: 100px;margin-top: 20px">
+            <div class="container-fluid">
+                <br>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-4">
+<!--                        <h1>DELTA </h1>-->
+                        <br>
+                        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur interdum neque non nisi condimentum.</h1>
+
+                        <a href="{% url 'accounts:login' %}" class="btn btn-primary btn-lg">Learn More</a>
+                    </div>
+
+                    <div class="col-md-7">
+                            <video width="100%" height="100%" autoplay loop muted controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 50px; background-color: #e2e3e5" >
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-center">
+<!--                    <div class="col-md-1"></div>-->
+
+                    <div class="col-md-5">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4185/4185811.png" width="60%" height="60%">
+                    </div>
+
+                    <div class="col-md-5">
+                        <h2>Lorem ipsum dolor sit amet</h2>
+                        <br>
+                        <ul class="highlight-ul">
+                            <li class="h3">Phasellus non tempus nisi</li>
+                            <li class="h3">Phasellus non tempus nisi</li>
+                            <li class="h3">Phasellus non tempus nisi</li>
+                            <li class="h3">Phasellus non tempus nisi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 50px">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-center">
+
+                    <div class="col-md-5">
+                        <h2>Lorem ipsum dolor sit amet</h2>
+                        <br>
+                        <ul class="highlight-ul">
+                            <li class="h3">Phasellus non tempus nisi</li>
+                            <li class="h3">Phasellus non tempus nisi</li>
+                            <li class="h3">Phasellus non tempus nisi</li>
+                            <li class="h3">Phasellus non tempus nisi</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-5">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4185/4185489.png" width="60%" height="60%">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer style="background-color: #e2e3e5;padding-top: 2rem">
+            <div class="container-fluid text-center">
+                    <div>
+                        <h3>Thanks to</h3>
+
+                             <a class="px-2" href="https://www.python.org/" >Python</a>
+                             <a class="px-2" href="https://www.djangoproject.com/" >Django</a>
+                             <a class="px-2" href="http://getbootstrap.com/" >Bootstrap</a>
+                             <a class="px-2" href="http://www.jetbrains.com/pycharm/" >PyCharm</a>
+
+                    </div>
+                <p class="py-3 my-0">copyright &copy; 2020-2021</p>
+            </div>
+
+        </footer>
+    {% endif %}
+{% endblock %}

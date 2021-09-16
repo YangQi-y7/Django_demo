@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="container" style="margin-top: 100px">
+<div class="row justify-content-center align-items-center">
+<div class="col-lg-4 col-md-8">
+    <form class="text-center" action="{% url 'accounts:login' %}" method="post">
+        {% if message %}
+            <div class="alert alert-warning">{{ message }}</div>
+        {% endif %}
+        {% csrf_token %}
+
+        <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/5084/5084069.png" alt="" width="72" height="72">
+        {{ login_form.username }}
+        {{ login_form.password }}
+        {{ login_form.captcha }}
+        <div style="margin: 30px"></div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+        <p class="mt-5 mb-3 text-muted">copyright &copy; 2020-2021</p>
+    </form>
+</div></div></div>
+{% endblock %}

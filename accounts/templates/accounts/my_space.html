@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}personal space{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>{{ request.session.user_name }}'s space</h1>
+        </div>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-3">
+
+                <div style="margin-top: 10px;margin-bottom: 10px">
+                </div>
+            </div>
+            <div class="col-md-7 start">
+                <div style="margin-top: 30px"></div>
+
+                <h1>Congrats! There are:</h1>
+                <div style="margin: 5px;padding: 20px;background-color: #ececf6">
+                    <h1>{{ my_article_num }} articles uploaded by you</h1>
+                    <a href="{% url 'recreation:upload_article' %}" class="btn btn-info btn-lg" style="align-self: center">Upload more articles</a>
+                    <a href="{% url 'recreation:myarticle' %}" class="btn btn-outline-info btn-lg" style="align-self: center">My Articles</a>
+                </div>
+                <div style="margin: 5px;padding: 20px;background-color: #ececf6">
+                    <h1>{{ my_video_num }} videos uploaded by you</h1>
+                    <a href="{% url 'recreation:upload_video' %}" class="btn btn-success btn-lg">Upload more videos</a>
+                    <a href="{% url 'recreation:my_video' %}" class="btn btn-outline-success btn-lg" style="align-self: center">My Videos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
