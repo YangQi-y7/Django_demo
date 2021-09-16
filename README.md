@@ -11,7 +11,7 @@ A simple full-stack Django demo with a basic account service and some CRUD opera
 Note that you may encounter `'str' object has no attribute 'decode'` error with this version of Django. For a quick fix, you can go to `python/site-packages/django/db/backends/mysql/operations.py`, and modify this function:
 
 ```python
-	def last_executed_query(self, cursor, sql, params):
+def last_executed_query(self, cursor, sql, params):
     # With MySQLdb, cursor objects have an (undocumented) "_executed"
     # attribute where the exact query sent to the database is saved.
     # See MySQLdb/cursors.py in the source distribution.
